@@ -3,14 +3,12 @@
 
 /* Requires the Docker Pipeline plugin */
 pipeline {
-    agent any
+    agent { docker { image 'node:16.17.1-alpine' } }
     stages {
         stage('build') {
             steps {
-                //sh 'python --version'
-                echo 'Triggered from Jenkinsfile'
+                sh 'node --version'
             }
         }
     }
 }
-
